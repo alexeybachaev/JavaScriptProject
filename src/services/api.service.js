@@ -29,6 +29,20 @@ class ApiService {
             console.log(error)
         }
     }
+
+    async fetchPostsById(id) {
+        try {
+            const request = new Request(`${this.url}/posts/${id}.json`, {
+                method: 'get'
+            })
+            const responce = await fetch(request)
+            return await responce.json()
+        }
+        catch (error) {
+            console.log(error)
+        }
+    }
+
 }
 
 export const apiService = new ApiService('https://somejsproject-js-default-rtdb.europe-west1.firebasedatabase.app')
